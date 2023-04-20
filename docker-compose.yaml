@@ -15,3 +15,15 @@ services:
              python3 manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/app:/app
+    depends_on:
+      - backend
+    ports:
+      - "80:5173"
