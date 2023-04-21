@@ -10,6 +10,8 @@ services:
       - .env
     volumes:
       - ./backend:/app
+      - ./backend/staticfiles:/app/staticfiles
+      - ./backend/media:/app/media
     command: >
       sh -c "python3 manage.py migrate &&
              python3 manage.py runserver 0.0.0.0:8000"
@@ -23,6 +25,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend/app:/app
+      - ./backend/staticfiles:/app/staticfiles
+      - ./backend/media:/app/media
     depends_on:
       - backend
     ports:

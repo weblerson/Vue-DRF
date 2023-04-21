@@ -6,6 +6,9 @@ ENV PYTHONUNBUFFERED=1
 RUN apt update
 
 RUN mkdir /app
+RUN mkdir /app/staticfiles
+RUN mkdir /app/media
+
 WORKDIR /app
 
 COPY ./requirements.txt ./
